@@ -797,8 +797,11 @@ int GMLReader::GetFeatureElementIndex( const char *pszElement, int nElementLengt
                         return i;
                     }
                 }
+                /* Feature class defined in application schema */
             }
-            return -1;
+            else {
+                return -1;
+            }
         }
     }
 
