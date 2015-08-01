@@ -44,4 +44,59 @@
                      elementValue="ST_UVOH"
                      gfsSchemaLocation="ruian_vf_st_uvoh_v1.gfs" />
     </namespace>
+
+    <!-- Japan FGD GML schema -->
+    <namespace uri="http://fgd.gsi.go.jp/spec/2008/FGD_GMLSchema">
+        <featureType elementName="GCP"
+                     gfsSchemaLocation="jpfgdgml_GCP.xsd" />
+        <featureType elementName="ElevPt"
+                     gfsSchemaLocation="jpfgdgml_ElevPt.xsd" />
+        <featureType elementName="Cntr"
+                     gfsSchemaLocation="jpfgdgml_Cntr.xsd" />
+        <featureType elementName="AdmArea"
+                     gfsSchemaLocation="jpfgdgml_AdmArea.xsd" />
+        <featureType elementName="AdmBdry"
+                     gfsSchemaLocation="jpfgdgml_AdmBdry.xsd" />
+        <featureType elementName="AdmPt"
+                     gfsSchemaLocation="jpfgdgml_AdmPt.xsd" />
+        <featureType elementName="SBArea"
+                     gfsSchemaLocation="jpfgdgml_SBArea.xsd" />
+        <featureType elementName="SBBdry"
+                     gfsSchemaLocation="jpfgdgml_SBBdry.xsd" />
+        <featureType elementName="SBAPt"
+                     gfsSchemaLocation="jpfgdgml_SBAPt.xsd" />
+        <featureType elementName="WA"
+                     gfsSchemaLocation="jpfgdgml_WA.xsd" />
+        <featureType elementName="WL"
+                     gfsSchemaLocation="jpfgdgml_WL.xsd" />
+        <featureType elementName="Cstline"
+                     gfsSchemaLocation="jpfgdgml_Cstline.xsd" />
+        <featureType elementName="WStrL"
+                     gfsSchemaLocation="jpfgdgml_WStrL.xsd" />
+        <featureType elementName="WStrA"
+                     gfsSchemaLocation="jpfgdgml_WStrA.xsd" />
+        <featureType elementName="LeveeEdge"
+                     gfsSchemaLocation="jpfgdgml_LeveeEdge.xsd" />
+        <featureType elementName="RvrMgtBdry"
+                     gfsSchemaLocation="jpfgdgml_RvrMgtBdry.xsd" />
+        <featureType elementName="BldA"
+                     gfsSchemaLocation="jpfgdgml_BldA.xsd" />
+        <featureType elementName="BldL"
+                     gfsSchemaLocation="jpfgdgml_BldL.xsd" />
+        <featureType elementName="RdEdg"
+                     gfsSchemaLocation="jpfgdgml_RdEdg.xsd" />
+        <featureType elementName="RdCompt"
+                     gfsSchemaLocation="jpfgdgml_RdCompt.xsd" />
+        <featureType elementName="RdASL"
+                     gfsSchemaLocation="jpfgdgml_RdASL.xsd" />
+        <featureType elementName="RdArea"
+                     gfsSchemaLocation="jpfgdgml_RdArea.xsd" />
+        <featureType elementName="RdSgmtA"
+                     gfsSchemaLocation="jpfgdgml_RdSgmtA.xsd" />
+        <featureType elementName="RdMgtBdry"
+                     gfsSchemaLocation="jpfgdgml_RdMgtBdry.xsd" />
+        <featureType elementName="RailCL"
+                     gfsSchemaLocation="jpfgdgml_RailCL.xsd" />
+    </namespace>
+
 </gml_registry>
