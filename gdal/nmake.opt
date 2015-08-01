@@ -42,7 +42,7 @@
 #
 !IFNDEF MSVC_VER
 #assume msvc VS2008.
-MSVC_VER=1500
+MSVC_VER=1600
 !ENDIF
 
 ###############################################################################
@@ -206,10 +206,10 @@ INCLUDE_OGR_FRMTS = YES
 # const or leave it empty. Take a look on your iconv() declaration in iconv.h.
 # If the second parameter declared as const char** then you need to define
 # ICONV_CONST=const otherwise leave it empty.
-#LIBICONV_DIR = "C:\Program Files\GnuWin32"
-#LIBICONV_INCLUDE = -I$(LIBICONV_DIR)\include
-#LIBICONV_LIBRARY = $(LIBICONV_DIR)\lib\libiconv.lib
-#LIBICONV_CFLAGS = -DICONV_CONST=const
+LIBICONV_DIR = C:\OSGeo4W
+LIBICONV_INCLUDE = -I$(LIBICONV_DIR)\include
+LIBICONV_LIBRARY = $(LIBICONV_DIR)\lib\iconv.lib
+LIBICONV_CFLAGS = -DICONV_CONST=const
 
 # Comment out the following to disable BSB support.
 BSB_SUPPORTED = 1
@@ -318,9 +318,9 @@ JPEG12_SUPPORTED = 1
 #		$(OGDIDIR)\lib\$(TARGET)\zlib_ogdi$(OGDIVER).lib
 
 # Uncomment for Expat support (required for KML, GPX and GeoRSS read support).
-#EXPAT_DIR = "C:\Program Files\Expat 2.0.1"
-#EXPAT_INCLUDE = -I$(EXPAT_DIR)/source/lib
-#EXPAT_LIB = $(EXPAT_DIR)/bin/libexpat.lib
+EXPAT_DIR = C:\OSGeo4W
+EXPAT_INCLUDE = -I$(EXPAT_DIR)/include
+EXPAT_LIB = $(EXPAT_DIR)/lib/libexpat.lib
 
 # Uncomment for Xerces based GML and ILI support.
 #XERCES_DIR =	c:\warmerda\supportlibs\xerces-c_2_6_0
