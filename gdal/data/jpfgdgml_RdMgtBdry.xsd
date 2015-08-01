@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://fgd.gsi.go.jp/spec/2008/FGD_GMLSchema"
+	xmlns:fgd="http://fgd.gsi.go.jp/spec/2008/FGD_GMLSchema" 
+	xmlns:gml="http://www.opengis.net/gml/3.2" 
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://fgd.gsi.go.jp/spec/2008/FGD_GMLSchema"
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified" >
+
+	<xs:annotation>
+		<xs:documentation>
+			このファイルは次の国土地理院の基盤地図情報 ダウンロードデータ用 XML Schema定義文書をもとにしてGDAL(OGR)のGMLドライバで読み込めるように変更し、地物クラスごとに分割したものです.
+
+			基盤地図情報 ダウンロードデータ用 XML Schema (XML Schema for Down Loaded Fundamental Geospatial Data)
+			
+			      (GML版) V4.0
+			
+			2008年3月 (March 2008)
+			2014年7月改定 (Revised on July 2014)
+			国土交通省国土地理院 (Geospatial Information Authority of Japan, Ministry of Land, Infrastructure, Transport and Tourism)
+		</xs:documentation>
+	</xs:annotation>
+
+	<xs:import namespace="http://www.opengis.net/gml/3.2"
+		 schemaLocation="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19136_Schemas/gml.xsd"/>
+
+	<xs:element name="Dataset" type="DatasetType" substitutionGroup="gml:AbstractGML"/>
+	<xs:complexType name="DatasetType">
+		<xs:complexContent>
+			<xs:extension base="gml:AbstractGMLType">
+				<xs:sequence >
+					<xs:element ref="gml:AbstractGML" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:element name="RdMgtBdry" type="fgd:RdMgtBdryType" substitutionGroup="gml:AbstractFeature"/>
+	<xs:complexType name="RdMgtBdryType">
+		<xs:complexContent>
+			<xs:extension base="gml:AbstractFeatureType">
+				<xs:sequence>
+					<xs:element name="fid" type="xs:string"/>
+					<xs:element name="lfSpanFr" type="xs:string"/>
+					<xs:element name="lfSpanTo" type="xs:string"/>
+					<xs:element name="devDate" type="xs:string"/>
+					<xs:element name="orgGILvl" type="xs:string"/>
+					<xs:element name="orgMDId" type="xs:string"/>
+					<xs:element name="vis" type="xs:string"/>
+					<xs:element name="loc" type="gml:CurvePropertyType"/>
+					<xs:element name="name" type="xs:string"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+</xs:schema>
