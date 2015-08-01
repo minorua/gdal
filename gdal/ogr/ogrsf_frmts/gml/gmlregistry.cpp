@@ -76,9 +76,9 @@ int GMLRegistry::Parse()
 
 int GMLRegistryNamespace::Parse(const char* pszRegistryFilename, CPLXMLNode* psNode)
 {
-    const char* pszPrefix = CPLGetXMLValue(psNode, "prefix", NULL);
+    const char* pszPrefix = CPLGetXMLValue(psNode, "prefix", "");
     const char* pszURI = CPLGetXMLValue(psNode, "uri", NULL);
-    if( pszPrefix == NULL || pszURI == NULL )
+    if( pszURI == NULL )
         return FALSE;
     osPrefix = pszPrefix;
     osURI = pszURI;
