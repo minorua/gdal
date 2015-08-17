@@ -46,7 +46,8 @@
     </namespace>
 
     <!-- Japan FGD GML schema -->
-    <namespace uri="http://fgd.gsi.go.jp/spec/2008/FGD_GMLSchema">
+    <namespace uri="http://fgd.gsi.go.jp/spec/2008/FGD_GMLSchema"
+               useGlobalSRSName="true">
         <featureType elementName="GCP"
                      gfsSchemaLocation="jpfgdgml_GCP.gfs" />
         <featureType elementName="ElevPt"
