@@ -12,17 +12,17 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>lfSpanFr</Name>
-      <ElementPath>lfSpanFr|TimeInstantType</ElementPath>
+      <ElementPath>lfSpanFr|timePosition</ElementPath>
       <Type>String</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>lfSpanTo</Name>
-      <ElementPath>lfSpanTo|TimeInstantType</ElementPath>
+      <ElementPath>lfSpanTo|timePosition</ElementPath>
       <Type>String</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>devDate</Name>
-      <ElementPath>devDate|TimeInstantType</ElementPath>
+      <ElementPath>devDate|timePosition</ElementPath>
       <Type>String</Type>
     </PropertyDefn>
     <PropertyDefn>
