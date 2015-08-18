@@ -100,6 +100,9 @@ int GML_IsSRSLatLongOrder(const char* pszSRSName)
             }
         }
     }
+    else if (strncmp(pszSRSName, "fguuid:jgd", 10) == 0 && strstr(pszSRSName, ".bl") != NULL)
+      return TRUE;
+
     return FALSE;
 }
 
