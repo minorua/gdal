@@ -2960,6 +2960,35 @@ def ogr_gml_63():
     return 'success'
 
 ###############################################################################
+# Test reading Japanese FGD GML (v4) files
+
+def ogr_gml_64():
+
+    if not gdaltest.have_gml_reader:
+        return 'skip'
+
+    ### open FGD GML file
+    ds = ogr.Open('data/JP-FG-GML-GCP.xml')
+
+    # check number of layers
+    if ds.GetLayerCount() != 1:
+        return 'fail'
+
+    # check the first feature
+    lyr = ds.GetLayer(0)
+    # print lyr.GetName(), lyr.GetGeometryColumn()
+
+    feat = lyr.GetNextFeature()
+    #TODO: replace test data with one of ElevPt data or dummy one
+    if ogrtest.check_feature_geometry(feat, 'POINT (133.823888889 34.976531111)'):
+        return 'fail'
+
+    if feat.GetField('devDate') != '2015-01-07':
+        return 'fail'
+
+    return 'success'
+
+###############################################################################
 #  Cleanup
 
 def ogr_gml_cleanup():
@@ -3154,6 +3183,7 @@ gdaltest_list = [
     ogr_gml_61,
     ogr_gml_62,
     ogr_gml_63,
+    ogr_gml_64,
     ogr_gml_cleanup ]
 
 if __name__ == '__main__':
