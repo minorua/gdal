@@ -750,10 +750,10 @@ int OGRGMLDataSource::Open( const char * pszNameIn )
                 {
                     GMLRegistryNamespace& oNamespace = oRegistry.aoNamespaces[iNS];
                     const char* pszNSToFind =
-                                CPLSPrintf("xmlns:%s", oNamespace.osPrefix.c_str());
+                                (oNamespace.osPrefix.size()) ? CPLSPrintf("xmlns:%s", oNamespace.osPrefix.c_str()) : NULL;
                     const char* pszURIToFind =
                                 CPLSPrintf("\"%s\"", oNamespace.osURI.c_str());
-                    if( osHeader.ifind(pszNSToFind) != std::string::npos &&
+                    if( ( pszNSToFind == NULL || osHeader.ifind(pszNSToFind) != std::string::npos ) &&
                         strstr(szHeader, pszURIToFind) != NULL )
                     {
                         if( oNamespace.bUseGlobalSRSName )
@@ -767,16 +767,28 @@ int OGRGMLDataSource::Open( const char * pszNameIn )
                             
                             GMLRegistryFeatureType& oFeatureType =
                                         oNamespace.aoFeatureTypes[iTypename];
-                            
-                            if ( oFeatureType.osElementValue.size() ) 
-                                pszElementToFind = CPLSPrintf("%s:%s>%s",
-                                                              oNamespace.osPrefix.c_str(),
-                                                              oFeatureType.osElementName.c_str(),
-                                                              oFeatureType.osElementValue.c_str());
+
+                            if( oNamespace.osPrefix.size() ) {
+                                if ( oFeatureType.osElementValue.size() ) 
+                                    pszElementToFind = CPLSPrintf("%s:%s>%s",
+                                                                  oNamespace.osPrefix.c_str(),
+                                                                  oFeatureType.osElementName.c_str(),
+                                                                  oFeatureType.osElementValue.c_str());
+                                else
+                                    pszElementToFind = CPLSPrintf("%s:%s",
+                                                                  oNamespace.osPrefix.c_str(),
+                                                                  oFeatureType.osElementName.c_str());
+                            }
                             else
-                                pszElementToFind = CPLSPrintf("%s:%s",
-                                                              oNamespace.osPrefix.c_str(),
-                                                              oFeatureType.osElementName.c_str());
+                            {
+                                if ( oFeatureType.osElementValue.size() ) 
+                                    pszElementToFind = CPLSPrintf("%s>%s",
+                                                                  oFeatureType.osElementName.c_str(),
+                                                                  oFeatureType.osElementValue.c_str());
+                                else
+                                    pszElementToFind = CPLSPrintf("<%s",
+                                                                  oFeatureType.osElementName.c_str());
+                            }
 
                             /* Case sensitive test since in a CadastralParcel feature */
                             /* there is a property basicPropertyUnit xlink, not to be */
