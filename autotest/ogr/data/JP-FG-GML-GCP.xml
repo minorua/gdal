@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Dataset xsi:schemaLocation="http://fgd.gsi.go.jp/spec/2008/FGD_GMLSchema FGD_GMLSchema.xsd"
+	xmlns:gml="http://www.opengis.net/gml/3.2"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	xmlns="http://fgd.gsi.go.jp/spec/2008/FGD_GMLSchema"
+	gml:id="Dataset1">
+  <gml:description>GMLドライバテスト用データ 原本ファイル：国土地理院 基盤地図情報 測量の基準点データ FG-GML-523336-GCP-20150101-0001.xml</gml:description>
+  <gml:name>基盤地図情報ダウンロードデータ（GML版）</gml:name>
+<GCP gml:id="K1_523336_39">
+<fid>10-00100-0-1412-2087829</fid>
+<lfSpanFr gml:id="K1_523336_39-1">
+<gml:timePosition>2014-12-25</gml:timePosition>
+</lfSpanFr>
+<devDate gml:id="K1_523336_39-2">
+<gml:timePosition>2015-01-07</gml:timePosition>
+</devDate>
+<orgGILvl>KJ14</orgGILvl>
+<vis>表示</vis>
+<pos>
+<gml:Point gml:id="K1_523336_39-g" srsName="fguuid:jgd2011.bl">
+<gml:pos>34.976531111 133.823888889</gml:pos>
+</gml:Point>
+</pos>
+<orgName>国土地理院</orgName>
+<type>三角点</type>
+<gcpClass>四等三角点</gcpClass>
+<gcpCode>TR45233367501</gcpCode>
+<name>三休山</name>
+<B>125915.512</B>
+<L>481766</L>
+<alti>331.07</alti>
+<altiAcc>2</altiAcc>
+</GCP>
+</Dataset>
