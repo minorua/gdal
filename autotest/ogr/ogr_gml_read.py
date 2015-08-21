@@ -2960,7 +2960,7 @@ def ogr_gml_63():
     return 'success'
 
 ###############################################################################
-# Test reading Japanese FGD GML (v4) files
+# Test reading a Japanese FGD GML (v4) file
 
 def ogr_gml_64():
 
