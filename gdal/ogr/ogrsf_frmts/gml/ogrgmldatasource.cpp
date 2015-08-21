@@ -749,9 +749,12 @@ int OGRGMLDataSource::Open( const char * pszNameIn )
                 for( size_t iNS = 0; iNS < oRegistry.aoNamespaces.size(); iNS ++ )
                 {
                     GMLRegistryNamespace& oNamespace = oRegistry.aoNamespaces[iNS];
+                    const char* pszNSToFind =
+                                CPLSPrintf("xmlns:%s", oNamespace.osPrefix.c_str());
                     const char* pszURIToFind =
                                 CPLSPrintf("\"%s\"", oNamespace.osURI.c_str());
-                    if( strstr(szHeader, pszURIToFind) != NULL )
+                    if( osHeader.ifind(pszNSToFind) != std::string::npos &&
+                        strstr(szHeader, pszURIToFind) != NULL )
                     {
                         if( oNamespace.bUseGlobalSRSName )
                             bUseGlobalSRSName = TRUE;
@@ -766,11 +769,14 @@ int OGRGMLDataSource::Open( const char * pszNameIn )
                                         oNamespace.aoFeatureTypes[iTypename];
                             
                             if ( oFeatureType.osElementValue.size() ) 
-                                pszElementToFind = CPLSPrintf("%s>%s",
+                                pszElementToFind = CPLSPrintf("%s:%s>%s",
+                                                              oNamespace.osPrefix.c_str(),
                                                               oFeatureType.osElementName.c_str(),
                                                               oFeatureType.osElementValue.c_str());
                             else
-                                pszElementToFind = oFeatureType.osElementName.c_str();
+                                pszElementToFind = CPLSPrintf("%s:%s",
+                                                              oNamespace.osPrefix.c_str(),
+                                                              oFeatureType.osElementName.c_str());
 
                             /* Case sensitive test since in a CadastralParcel feature */
                             /* there is a property basicPropertyUnit xlink, not to be */
