@@ -729,7 +729,7 @@ OGRFeature *OGRSXFLayer::GetNextRawFeature(long nFID)
     }
     // Else trouble.
 
-    if (b3D) //xххххх1х
+    if (b3D) //xххххх1x
         stCertInfo.bDim = 1;
     else
         stCertInfo.bDim = 0;
