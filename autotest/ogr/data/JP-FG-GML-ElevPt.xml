@@ -5,7 +5,7 @@
 	xmlns:xlink="http://www.w3.org/1999/xlink"
 	xmlns="http://fgd.gsi.go.jp/spec/2008/FGD_GMLSchema"
 	gml:id="Dataset1">
-  <gml:description>GMLドライバテスト用データ. FG-GML-523336-AdmPt-20150101-0001.xmlの一部をもとに作成. 基盤地図情報メタデータ ID=fmdid:15-0101</gml:description>
+  <gml:description>GMLドライバテスト用データ. FG-GML-523336-ElevPt-20150101-0001.xmlの一部をもとに作成. 基盤地図情報メタデータ ID=fmdid:15-0101</gml:description>
   <gml:name>基盤地図情報ダウンロードデータ（GML版）</gml:name>
 <ElevPt gml:id="K2_9999999999_1">
 <fid>99999-99999-i-1</fid>
