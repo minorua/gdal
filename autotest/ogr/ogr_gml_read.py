@@ -3895,8 +3895,16 @@ def ogr_gml_76():
     if ds.GetLayerCount() != 1:
         return 'fail'
 
-    # check the first feature
     lyr = ds.GetLayer(0)
+    # print lyr.GetName(), lyr.GetGeometryColumn()
+
+    # check the SRS
+    sr = osr.SpatialReference()
+    sr.ImportFromEPSG(6668)   # JGD2011
+    if not sr.IsSame(lyr.GetSpatialRef()):
+        return 'fail'
+
+    # check the first feature
     feat = lyr.GetNextFeature()
     if ogrtest.check_feature_geometry(feat, 'POINT (133.123456789 34.123456789)'):
         return 'fail'
