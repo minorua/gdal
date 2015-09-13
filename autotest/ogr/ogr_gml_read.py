@@ -3893,6 +3893,7 @@ def ogr_gml_76():
 
     # check number of layers
     if ds.GetLayerCount() != 1:
+        gdaltest.post_reason('Wrong layer count')
         return 'fail'
 
     lyr = ds.GetLayer(0)
@@ -3902,14 +3903,17 @@ def ogr_gml_76():
     sr = osr.SpatialReference()
     sr.ImportFromEPSG(6668)   # JGD2011
     if not sr.IsSame(lyr.GetSpatialRef()):
+        gdaltest.post_reason('Wrong SRS')
         return 'fail'
 
     # check the first feature
     feat = lyr.GetNextFeature()
     if ogrtest.check_feature_geometry(feat, 'POINT (133.123456789 34.123456789)'):
+        gdaltest.post_reason('Wrong geometry')
         return 'fail'
 
     if feat.GetField('devDate') != '2015-01-07':
+        gdaltest.post_reason('Wrong attribute value')
         return 'fail'
 
     return 'success'
